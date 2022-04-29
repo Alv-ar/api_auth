@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'), env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +61,12 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => env('DATABASE_URI', 'mongodb+srv://raul:raul2001@cluster0.fmphu.mongodb.net/DownloadLog?retryWrites=true&w=majority'),
+            'database' => 'DownloadLog',
         ],
 
         'pgsql' => [
