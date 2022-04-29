@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 Route::put('kills', [UserController::class, 'kills']);
+Route::post('download', [UserController::class, 'download']);
 
 Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::get('logout', [UserController::class, 'logout']);

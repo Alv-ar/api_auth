@@ -141,7 +141,6 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        Jenssegers\Mongodb\MongodbServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -168,6 +167,10 @@ return [
         /*
          * Package Service Providers...
          */
+
+        //TODO raul arregla esto
+        //Jenssegers\Mongodb\MongodbServiceProvider::class,
+
 
         /*
          * Application Service Providers...

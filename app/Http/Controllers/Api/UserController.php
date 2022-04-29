@@ -110,5 +110,11 @@ class UserController extends Controller
         $date = Carbon::now();
         $download->email = $request->email;
         $download->date = $date;
+
+        $download->save();
+
+        return response()->json([
+            "msg" => $download
+        ], 201);
     }
 }
