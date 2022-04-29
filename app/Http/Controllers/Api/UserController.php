@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\DownloadLog;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
-use Socialite;
-use Auth;
 
 class UserController extends Controller
 {
@@ -51,7 +51,7 @@ class UserController extends Controller
                     "status" => 1,
                     "msg" => "User loged in",
                     "acces_token" => $token
-                ], 404);
+                ], 201);
 
             } else {
                 return response()->json([
@@ -83,15 +83,32 @@ class UserController extends Controller
         return response()->json([
             "status" => 1,
             "msg" => "Logout done",
-        ], 404);
+        ], 201);
     }
 
-    public function google()
+    public function kills(Request $request)
     {
-        return Socialite::driver('google')->redirect();
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $user = User::where("email", "=", $request->email)->first();
+        $user->update(['kills' => $user->kills + 1]);
+
+        return response()->json([
+            "msg" => $user
+        ], 201);
     }
-    public function googleRedirect()
+
+    public function download(Request $request)
     {
-        $user = Socialite::driver('google')->user();
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $download = new DownloadLog();
+        $date = Carbon::now();
+        $download->email = $request->email;
+        $download->date = $date;
     }
 }
