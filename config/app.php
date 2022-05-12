@@ -168,8 +168,6 @@ return [
          * Package Service Providers...
          */
 
-        //TODO raul arregla esto
-        //Jenssegers\Mongodb\MongodbServiceProvider::class,
 
 
         /*

@@ -100,6 +100,7 @@ class UserController extends Controller
         ], 201);
     }
 
+    /*
     public function download(Request $request)
     {
         $request->validate([
@@ -117,4 +118,5 @@ class UserController extends Controller
             "msg" => $download
         ], 201);
     }
+    */
 }
