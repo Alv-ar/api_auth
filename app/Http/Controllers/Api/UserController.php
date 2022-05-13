@@ -96,7 +96,9 @@ class UserController extends Controller
         $user->update(['kills' => $user->kills + 1]);
 
         return response()->json([
-            "msg" => $user
+            "status" => 1,
+            "msg" => "+1 kill",
+            "data" => $user->kills,
         ], 201);
     }
 
