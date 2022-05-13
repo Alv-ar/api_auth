@@ -88,11 +88,15 @@ class UserController extends Controller
 
     public function kills(Request $request)
     {
+        
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
         return response()->json([
             "status" => 0,
             "msg" => "+0 kill",
         ], 201);
-
     }
 
     /*
