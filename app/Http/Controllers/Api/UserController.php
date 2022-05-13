@@ -90,11 +90,11 @@ class UserController extends Controller
     {
         
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required',
         ]);
         return response()->json([
             "status" => 0,
-            "msg" => $request,
+            "msg" => $request->all(),
         ], 201);
         $user = User::where("email", "=", $request->email)->first();
         $user->update(['kills' => $user->kills + 1]);
