@@ -90,7 +90,7 @@ class UserController extends Controller
     {
 
         $user = User::where("email", "=", $request->email)->first();
-        $user->update(['kills' => $user->kills + 1]);
+        //$user->update(['kills' => $user->kills + 1]);
 
         return response()->json([
             "status" => 1,
