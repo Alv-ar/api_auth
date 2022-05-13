@@ -88,23 +88,11 @@ class UserController extends Controller
 
     public function kills(Request $request)
     {
-        
-        $request->validate([
-            'email' => 'required',
-        ]);
         return response()->json([
             "status" => 0,
-            "msg" => $request->all(),
+            "msg" => "+0 kill",
         ], 201);
-        $user = User::where("email", "=", $request->email)->first();
-        $user->update(['kills' => $user->kills + 1]);
-        
 
-        return response()->json([
-            "status" => 1,
-            "msg" => "+1 kill",
-            "data" => $user->kills,
-        ], 201);
     }
 
     /*
